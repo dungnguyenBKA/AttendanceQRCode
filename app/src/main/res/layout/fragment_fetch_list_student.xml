@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/swipe_layout"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <!--SUCCESS SCREEN -->
+
+        <ProgressBar
+            android:visibility="visible"
+            android:layout_centerInParent="true"
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:fontFamily="@font/bold"
+            android:layout_marginTop="25dp"
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="List students"
+            android:textSize="30sp"/>
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_above="@id/list_student"
+            android:layout_alignParentEnd="true"
+            android:fontFamily="@font/bold"
+            android:text="Total: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_student"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/text"
+            android:layout_marginTop="20dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_student">
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <!--ERROR SCREEN-->
+
+
+        <RelativeLayout
+            android:id="@+id/error_frag"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_margin="30dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/error"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                android:layout_above="@+id/list_student_error_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginBottom="20dp"
+                android:textSize="25sp"
+                android:fontFamily="@font/bold"
+                android:layout_centerInParent="true"
+                android:text="Error"
+                android:id="@+id/_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_below="@+id/_error"
+                android:paddingStart="50dp"
+                android:paddingEnd="50dp"
+                android:text="Opps, you have bug 404 "
+                android:id="@+id/list_student_error_text"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
